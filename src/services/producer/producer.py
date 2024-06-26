@@ -1,13 +1,13 @@
 import random
-from venv import Flask
-from proj import workHelper
-from proj import AddTask
+from flask import Flask
+from proj.helper import makeWorker
+from proj.tasks import AddTask
 
 app = Flask(__name__)
 
-addition_worker = workHelper(AddTask)
+addition_worker = makeWorker(AddTask)
 
-@app.route('/create_tasks/<count>')
+@app.route("/")
 def create_tasks(count):
     count = int(count)
     for i in range(count):
