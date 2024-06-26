@@ -5,9 +5,9 @@ from proj.tasks import AddTask
 
 app = Flask(__name__)
 
-addition_worker = makeWorker(AddTask)
+_, addition_worker = makeWorker(AddTask)
 
-@app.route("/")
+@app.route("/create_tasks/<count>")
 def create_tasks(count):
     count = int(count)
     for i in range(count):
