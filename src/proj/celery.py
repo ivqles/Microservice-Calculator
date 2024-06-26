@@ -1,9 +1,10 @@
 from celery import Celery
 
-app = Celery('proj',
+# Initiate Celery
+celery = Celery('proj',
              broker='pyamqp://guest@localhost//',
              backend='rpc://',
              include=['proj.tasks'])
 
 if __name__ == '__main__':
-    app.start()
+    celery.start()
