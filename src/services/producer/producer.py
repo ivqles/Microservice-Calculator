@@ -1,5 +1,5 @@
 import random
-from venv import Flask
+from flask import Flask
 from proj import workHelper
 from proj import AddTask
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 addition_worker = workHelper(AddTask)
 
-@app.route('/create_tasks/<count>')
+@app.route("/")
 def create_tasks(count):
     count = int(count)
     for i in range(count):
