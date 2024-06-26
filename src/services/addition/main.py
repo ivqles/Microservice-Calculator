@@ -12,7 +12,7 @@ class AddTaskImpl(AddTask):
         return result
 
 #create celery app
-app = makeWorker(AddTaskImpl)
+app, _ = makeWorker(AddTaskImpl)
 
 #starts worker
 if __name__ == '__main__':
