@@ -18,3 +18,20 @@ docker run -d -p 5672:5672 rabbitmq
 celery -A celery worker -l info
 ```
 
+### New Run Stuff
+
+Make sure Docker Desktop is up and running
+
+```bash
+docker-compose build
+```
+```bash
+docker pull mher/flower:0.9.5 
+```
+```bash
+docker pull rabbitmq:management
+```
+```bash
+docker stack deploy --compose-file=docker-compose.yml calculator
+```
+
