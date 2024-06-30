@@ -1,5 +1,5 @@
-from proj.tasks import AddTask
-from proj.helper import makeWorker
+from celery_tasks.tasks import AddTask
+from celery_tasks.helper import makeWorker
 
 
 class AddTaskImpl(AddTask):

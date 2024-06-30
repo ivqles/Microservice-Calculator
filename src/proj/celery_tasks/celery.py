@@ -1,11 +1,11 @@
 from celery import Celery
-from proj.celery_config import broker_url, backend
+from celery_tasks.celery_config import broker_url, backend
 
 # Initiate Celery
 celery = Celery('proj',
              broker=broker_url,
              backend=backend,
-             include=['proj.tasks'])
+)
 
 if __name__ == '__main__':
     celery.start()

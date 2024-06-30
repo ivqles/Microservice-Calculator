@@ -4,7 +4,7 @@ Helper Function to register Task Classes
 
 from .celery import celery
 
-def makeWorker(TaskClass, celery_config='proj.celery_config'):
+def makeWorker(TaskClass, celery_config='celery_tasks.celery_config'):
     # check class is valid Task
     assert issubclass(TaskClass, celery.Task)
     celery.config_from_object(celery_config)
