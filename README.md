@@ -21,7 +21,7 @@ This application simulates a calculator using Flask, Python, Celery, RabbitMQ, a
     ```bash
     docker-compose -f src/proj/docker-compose.yml up --build
     ```
-5. To generate <count> random tasks per each operation (add, subtract, multiply, divide), run the following line in your web url, replacing <count> with your desired number of tasks:
+5. To generate \<count> random tasks per each operation (add, subtract, multiply, divide), run the following line in your web url, replacing \<count> with your desired number of tasks:
    ```
    0.0.0.0/5001/create_tasks/<count>
    ```
