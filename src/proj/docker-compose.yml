@@ -8,7 +8,6 @@ services:
             - RABBITMQ_DEFAULT_USER=admin
             - RABBITMQ_DEFAULT_PASS=mypass
         ports:
-            - "5672:5672"
             - 15672:15672
         deploy:
             replicas: 1
@@ -18,7 +17,7 @@ services:
     flower:
       image: mher/flower:0.9.5
       environment:
-        - CELERY_BROKER_URL=amqp://admin:mypass@rabbit:15672//
+        - CELERY_BROKER_URL=amqp://admin:mypass@rabbit:5672//
         - FLOWER_PORT=5555
         - FLOWER_PURGE_OFFLINE_WORKERS=10
       ports:
@@ -38,7 +37,7 @@ services:
         links:
             - rabbit
         deploy:
-            replicas: 2
+            replicas: 1
             restart_policy:
                 condition: on-failure
 
@@ -50,7 +49,7 @@ services:
       links:
         - rabbit
       deploy:
-        replicas: 2
+        replicas: 1
         restart_policy:
           condition: on-failure
 
@@ -62,7 +61,7 @@ services:
       links:
         - rabbit
       deploy:
-        replicas: 2
+        replicas: 1
         restart_policy:
           condition: on-failure
 
@@ -74,7 +73,7 @@ services:
       links:
         - rabbit
       deploy:
-        replicas: 2
+        replicas: 1
         restart_policy:
           condition: on-failure
 

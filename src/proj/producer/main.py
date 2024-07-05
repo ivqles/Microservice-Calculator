@@ -19,14 +19,10 @@ def create_tasks(count):
     for i in range(count):
         num_1 = random.randint(1, 1000)
         num_2 = random.randint(1, 1000)
-        payload = {
-            'num_1': num_1,
-            'num_2': num_2
-        }
-        addition_worker.apply_async(args=[payload, ])
-        subtraction_worker.apply_async(args=[payload, ])
-        multiplication_worker.apply_async(args=[payload, ])
-        division_worker.apply_async(args=[payload, ])
+        addition_worker.apply_async(args=[num_1, num_2 ])
+        subtraction_worker.apply_async(args=[num_1, num_2 ])
+        multiplication_worker.apply_async(args=[num_1, num_2 ])
+        division_worker.apply_async(args=[num_1, num_2 ])
     return "Done " + str(count)
 
 
